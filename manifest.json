@@ -1,0 +1,18 @@
+{
+  "name": "Alfred Lynx",
+  "manifest_version": 2,
+  "version": "0.1",
+  "description": "navigate around the site using Alfred (osx app) style behavior",
+  "content_scripts": [{
+    "matches": [ "<all_urls>" ],
+    "all_frames": true,
+    "css": ["style.css"],
+    "js": [
+      "vendor/zepto.min.js",
+      "contentscript.js"
+    ]
+  }],
+  "web_accessible_resources": [
+    "popup.html"
+  ]
+}
