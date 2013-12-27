@@ -10,12 +10,18 @@ $.get(chrome.extension.getURL("popup.html")) @(html)
   show (links) =
     wishes container.find '.genie-wish'.remove()
 
-    for each @(link) in (links.slice 0 10)
+    for each @(link) in (links.slice 0 4)
       wish = $('<div class="genie-wish">')
       wish.text(link.inner text || link.href)
+      wish.data('href', link.href)
       wishes container.append(wish)
 
     wishes container.find '.genie-wish'.first().add class 'focused'
+
+  follow link () =
+    current link = wishes container.find '.genie-wish.focused'.first()
+    if (current link)
+      window.location.href = current link.data 'href'
 
   $(document).on 'keydown' @(event)
     if (!inner container.has class 'visible')
@@ -25,9 +31,7 @@ $.get(chrome.extension.getURL("popup.html")) @(html)
         event.preventDefault()
     else
       if (event.key code == 13)
-        current link = wishes container.find '.genie-wish.focused'.get 0
-        if (current link)
-          window.location.href = current link.href
+        follow link()
       else if (event.key code == 27)
         inner container.remove class 'visible'
 
@@ -36,3 +40,11 @@ $.get(chrome.extension.getURL("popup.html")) @(html)
       current input value = input.val()
       selected links = [l, where: l <- links, @new RegExp(current input value, 'i').test(l.innerText || l.href)]
       show (selected links)
+
+  $(document).on 'mouseover' '#uxLampContainer .genie-wish' @(event)
+    inner container.find '.genie-wish'.remove class 'focused'
+    $(this).add class 'focused'
+    event.preventDefault()
+
+  $(document).on 'click' '#uxLampContainer .genie-wish'
+    follow link()
