@@ -1,6 +1,10 @@
+// all links without duplucates
 links = $ 'a'.get().reduce @(acc, link)
   same links = $.grep (acc) @(l)
-    l.href == link.href && l.innerText == link.innerText
+    if (link.inner text)
+      l.inner text == link.inner text
+    else
+      l.href == link.href
 
   if (same links.length == 0)
     acc.push (link)
@@ -51,7 +55,7 @@ $.get(chrome.extension.getURL("popup.html")) @(html)
     if (!inner container.has class 'visible')
       if (event.key code == 32 && event.'ctrlKey')
         inner container.add class 'visible'
-        inner container.find 'input'.focus()
+        inner container.find 'input'.focus().get(0).select()
         event.preventDefault()
     else
       if (event.key code == 13)
