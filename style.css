@@ -40,24 +40,24 @@
 }
 
 /* ng-genie light styles */
-#uxLampContainer.light .genie-container {
+#uxLampContainer.lamp-light .genie-container {
   color: #333;
   background-color: #F7F7F7;
   box-shadow: 0px 0px 26px 6px #888888;
 }
 
-#uxLampContainer.light .genie-wish.focused {
+#uxLampContainer.lamp-light .genie-wish.focused {
   background-color: #DDD;
 }
 
 /* ng-genie small styles */
-#uxLampContainer.small .genie-container {
+#uxLampContainer.lamp-small .genie-container {
   width: 500px;
   margin-left: -272px;
   padding: 12px;
 }
 
-#uxLampContainer.small .genie-container > input {
+#uxLampContainer.lamp-small .genie-container > input {
   width: 472px;
   line-height: 40px;
   padding: 0px 12px 0px 12px;
@@ -65,13 +65,13 @@
   height: 54px;
 }
 
-#uxLampContainer.small .genie-wishes {
+#uxLampContainer.lamp-small .genie-wishes {
   width: 500px;
   max-height: 500px;
   font-size: 24px;
 }
 
-#uxLampContainer.small .genie-wish {
+#uxLampContainer.lamp-small .genie-wish {
   padding: 0px 12px 0px 12px;
   line-height: 36px;
 }
